@@ -1,6 +1,10 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.*;
 
 public class Client extends Thread {
 
@@ -14,20 +18,19 @@ public class Client extends Thread {
         int porta = s.nextInt();
 
 
-        try{
+        try {
 
             Socket conexao = new Socket(ip, porta);
 
             Thread t = new Client(conexao);
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             System.out.println("IOException " + e);
         }
     }
 
     private Socket conexao;
 
-    public Client(Socket s){
+    public Client(Socket s) {
         conexao = s;
     }
 
@@ -54,11 +57,7 @@ public class Client extends Thread {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-
         }
-
-
-
-      }
     }
 }
+
